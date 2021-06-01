@@ -43,10 +43,6 @@ class PelangganController extends Controller
             'email' => 'required|email|unique:users',
             'role' => 'required',
         ]);
-        $notification = array(
-            'message' => 'I am a successful message!', 
-            'alert-type' => 'success'
-        );
 
         $users = new \App\Models\User;
         $users->role = $request->role;
@@ -55,8 +51,7 @@ class PelangganController extends Controller
         $users->password = hash::make($request->password);
         $users->save();
         
-
-        return redirect()->back()->with($notification);
+        return redirect()->back()->with('toast_success', 'Data berhasil Ditambah!');
     }
 
     /**
@@ -78,7 +73,8 @@ class PelangganController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pelanggan = User::findOrFail($id);
+        return view('pelanggan/admin_editpelanggan', compact('pelanggan', 'pelanggan'));
     }
 
     /**
@@ -90,7 +86,10 @@ class PelangganController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $users = User::where('id', $id)->first();
+        $users->fill($request->all());
+        $users->update();
+        return redirect()->to('daftar_pelanggan')->with(['success' => 'Produk Berhasil Disimpan']);
     }
 
     /**

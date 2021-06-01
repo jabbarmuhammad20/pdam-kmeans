@@ -93,10 +93,18 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="daftar_debitAir" class="nav-link">
               <i class="nav-icon fa fa-water"></i>
               <p>
                 Data Debit Air
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-hand-holding-usd"></i>
+              <p>
+                Keuangan
               </p>
             </a>
           </li>

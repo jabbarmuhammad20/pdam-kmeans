@@ -1,7 +1,5 @@
 @extends('layouts.adminlte')
 @section('content')
-{!! Toastr::message() !!}
-<section class="content">
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
@@ -16,11 +14,16 @@
               <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/tambah_pelangganStore" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="role">role</label>
-                    <input type="text" class="form-control" id="role" name="role" placeholder="role">
-                  </div>
+                    <div class="card-body">
+                      <!-- select -->
+                      <div class="form-group">
+                        <label>Role</label>
+                        <select class="custom-select" id="role" name="role">
+                         <option disabled >-</option>
+                          <option value="admin">Admin</option>
+                          <option value="pelanggan">Pelanggan</option>
+                        </select>
+                      </div>
 
                   <div class="form-group">
                     <label for="email">Email</label>
@@ -44,4 +47,8 @@
                 </div>
               </form>
             </div>
+            </div>
+            </div>
+            </div>
+            @include('sweetalert::alert')
 @endsection

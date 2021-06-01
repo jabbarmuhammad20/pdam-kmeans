@@ -21,6 +21,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'nik',
+        'kk',
+        'tem_lahir',
+        'tgl_lahir',
+        'alamat',
+        'debit_air',
+        'hrg',
+        'belum_bayar',
     ];
 
     /**
