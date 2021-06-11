@@ -93,7 +93,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="daftar_debitAir" class="nav-link">
+              <a href="daftar_debitAir" class="nav-link">
               <i class="nav-icon fa fa-water"></i>
               <p>
                 Data Debit Air
@@ -195,7 +195,7 @@
       "responsive": true, 
       "lengthChange": false, 
       "autoWidth": true,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      "buttons": ["copy", "csv", "excel", "pdf", "print"]
     }).buttons().container().appendTo('#daftar_pelanggan_wrapper .col-md-6:eq(0)');
     
   });

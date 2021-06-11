@@ -5,7 +5,7 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Daftar Penggunaan Debit Air<a href="tambah_pelanggan"> Tambah </a> </h3>
+            <h3 class="card-title">Daftar Penggunaan Debit Air <a href="admin_tambahDebitAir"> Tambah </a> </h3>
             <!-- /.card-header -->
             <div class="card-body"> 
             <table id="daftar_pelanggan" class="table table-bordered table-hover">
@@ -15,7 +15,6 @@
                 <th>Nama</th>
                 <th>Debit Air</th>
                 <th>Keasaman</th>
-                <th>Penggunaan Air</th>
                 <th>Aksi</th>
                 </tr>
                 </thead>
@@ -27,8 +26,8 @@
                 <td>{{$pelanggan->name}}</td>
                 <td>{{$pelanggan->debit_air}}</td>
                 <td>{{$pelanggan->debit_air}}</td>
-                <td></td>
-                <td><a href="#" type="button" class="btn btn-success btn-sm" title="Lihat"><i class="fa fa-search text-white"> Lihat</i></a>
+                <td><a href="admin_tambahDebitAir/{{$pelanggan->id}}" type="button" class="btn btn-primary btn-sm" title="Tambah Debit Air"><i class="fa fa-plus text-white"> Tambah Debit Air</i></a>
+                    <a href="#" type="button" class="btn btn-success btn-sm" title="Lihat"><i class="fa fa-search text-white"> Lihat</i></a>
                     <a href="#" type="button" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data?')"><i class="fa fa-trash text-white"> Hapus</a></td>
                 </tr>
                 @endforeach

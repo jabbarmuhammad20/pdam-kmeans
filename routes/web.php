@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\CheckRole;
+use App\Http\Controller\KMeansController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::get('/admin_editpelanggan/{id}', [App\Http\Controllers\PelangganControlle
 Route::put('/admin_updatepelanggan/{id}', [App\Http\Controllers\PelangganController::class, 'update']);
 
 Route::get('/daftar_debitAir', [App\Http\Controllers\DebitController::class, 'index']);
+Route::get('/admin_tambahDebitAir/{id}',[App\Http\Controllers\DebitController::class, 'admin_tambahDebitAir']);
 
-
+Route::get('/daftar_debitAirKMeans',[App\Http\Controllers\KMeansController::class, 'index']);
 });
