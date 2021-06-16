@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Tranksaksi;
 
 use Illuminate\Http\Request;
 
@@ -12,10 +13,19 @@ class TranksaksiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //  Daftar Pembayaran
     public function index()
     {
         $users = User::all();
         return view('tranksaksi/admin_daftarPembayaran',['users'=>$users]);
+    }
+
+    // Riwayat Pembayaran
+    public function admin_riwayatPembayaran()
+    {
+        $tranksaksi = tranksaksi::all();
+        return view('tranksaksi/admin_riwayatPembayaran',['tranksaksi'=>$tranksaksi]);
     }
 
     /**

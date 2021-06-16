@@ -17,8 +17,8 @@
                 <tr>
                 <th>#</th>
                 <th>Nama</th>
+                <th>Alamat</th>
                 <th>Debit Air</th>
-                <th>Keasaman</th>
                 <th>Aksi</th>
                 </tr>
                 </thead>
@@ -28,7 +28,7 @@
                 <tr>
                 <td>{{$no++}}</td>
                 <td>{{$pelanggan->name}}</td>
-                <td>{{$pelanggan->debit_air}}</td>
+                <td>{{$pelanggan->alamat}}</td>
                 <td>{{$pelanggan->debit_air}}</td>
                 <td><a href="admin_tambahDebitAir/{{$pelanggan->id}}" type="button" class="btn btn-primary btn-sm" title="Tambah Debit Air"><i class="fa fa-plus text-white"> Tambah Debit Air</i></a>
                     <a href="#" type="button" class="btn btn-success btn-sm" title="Lihat"><i class="fa fa-search text-white"> Lihat</i></a>

@@ -48,6 +48,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
     Route::get('/daftar_debitAirKMeans2',[App\Http\Controllers\KMeans2Controller::class, 'index'])->name('Kmeans2');
     
     Route::get('/daftar_pembayaran',[App\Http\Controllers\TranksaksiController::class, 'index']);
+    Route::get('/admin_riwayatPembayaran',[App\Http\Controllers\TranksaksiController::class, 'admin_riwayatPembayaran']);
     Route::get('/admin_konfirmasiKeuangan/{id}',[App\Http\Controllers\TranksaksiController::class, 'create']);
     Route::post('/admin_konfirmasiKeuangan',[App\Http\Controllers\TranksaksiController::class, 'store']);
 
