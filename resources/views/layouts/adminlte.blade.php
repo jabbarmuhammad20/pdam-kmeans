@@ -102,13 +102,28 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/daftar_pembayaran" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fa fa-hand-holding-usd"></i>
               <p>
                 Keuangan
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-          </li>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/daftar_pembayaran" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pembayaran</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../../index2.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Riwayat Pembayaran</p>
+                  </a>
+                </li>
+              </ul>
+              </li>
           <li class="nav-item">
             <a href="admin_setting" class="nav-link">
               <i class="nav-icon fas fa-cogs"></i>
@@ -226,16 +241,77 @@
 </script>
 
 <script>
-  $(function () {
-    $("#daftar_pelanggan").DataTable({
-      "responsive": true, 
-      "lengthChange": false, 
-      "autoWidth": true,
-      "buttons": ["copy", "csv", "excel", "pdf", "print"]
-    }).buttons().container().appendTo('#daftar_pelanggan_wrapper .col-md-6:eq(0)');
-    
-  });
+$(function() {
+      $("#daftar_pelanggan1").DataTable({
+        "responsive": true,
+        "autoWidth": true,
+        "paging": true,
+        "lengthChange": true,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": true,
+        "responsive": true,
+      });
+    });
 
+$(function() {
+      $("#daftar_debitairkmean").DataTable({
+        "responsive": true,
+        "autoWidth": true,
+        "paging": true,
+        "lengthChange": true,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": true,
+        "responsive": true,
+      });
+    });
+
+$(function() {
+      $("#daftar_debitair").DataTable({
+        "responsive": true,
+        "autoWidth": true,
+        "paging": true,
+        "lengthChange": true,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": true,
+        "responsive": true,
+      });
+    });
+
+$(function() {
+      $("#daftar_pembayaran").DataTable({
+        "responsive": true,
+        "autoWidth": true,
+        "paging": true,
+        "lengthChange": true,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": true,
+        "responsive": true,
+      });
+    });
+
+    $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
   
 </script>
 

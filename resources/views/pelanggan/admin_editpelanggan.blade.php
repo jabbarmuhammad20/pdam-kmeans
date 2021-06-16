@@ -1,18 +1,30 @@
 @extends('layouts.adminlte')
 @section('content')
-{!! Toastr::message() !!}
+ 
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12">
+            <h1>Data Pelanggan</h1>
+          </div>
+          <div class="col-sm-12">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Data Pelanggan</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
 
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
           <div class="col-md-12">
             <!-- general form elements -->
-            <div class="card">
+            <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Edit Akun      
-                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
-                  Format Pengisian
-                </button></h3>
+                <h3 class="card-title">Edit Akun</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -47,7 +59,7 @@
           <!-- left column -->
           <div class="col-md-12">
             <!-- general form elements -->
-            <div class="card">
+            <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Edit Dataku</h3>
               </div>
@@ -87,7 +99,7 @@
           <!-- left column -->
           <div class="col-md-12">
             <!-- general form elements -->
-            <div class="card">
+            <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Debit Air</h3>
               </div>

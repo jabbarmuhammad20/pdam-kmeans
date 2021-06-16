@@ -5,10 +5,14 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Daftar Debit Air <a href="daftar_debitAirKMeans2">Rendah </a> <a href="daftar_debitAirKMeans1">Sedang </a> <a href="daftar_debitAirKMeans"> Tinggi </a></h3>
+            <h3 class="card-title">Daftar Debit Air
+            <a href="daftar_debitAirKMeans2" type="button" class="btn btn-primary btn-sm" title="Lihat"><i class="fa fa-up text-white"> Rendah</i></a>
+            <a href="daftar_debitAirKMeans1" type="button" class="btn btn-success btn-sm" title="Lihat"><i class="fa fa-up text-white"> Sedang</i></a>
+            <a href="daftar_debitAirKMeans" type="button" class="btn btn-danger btn-sm" title="Lihat"><i class="fa fa-up text-white"> Tinggi </i></a>
+            </h3><br>
             <!-- /.card-header -->
             <div class="card-body"> 
-            <table id="daftar_pelanggan" class="table table-bordered table-hover">
+            <table id="daftar_debitair" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                 <th>#</th>

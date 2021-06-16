@@ -5,18 +5,17 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Daftar Penggunaan Debit Air<a href="tambah_debitAir"> Tambah </a> </h3>
+            <h3 class="card-title">Daftar Penggunaan Debit Air</h3>
             <!-- /.card-header -->
             <div class="card-body"> 
-            <table id="daftar_pelanggan" class="table table-bordered table-hover">
+            <table id="daftar_debitairkmean" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                 <th>#</th>
                 <th>Nama</th>
+                <th>Alamat</th>
                 <th>Debit Air</th>
-                <th>Keasaman</th>
-                <th>Penggunaan Air</th>
-                <th>Aksi</th>
+               
                 </tr>
                 </thead>
                 <tbody>
@@ -25,12 +24,8 @@
                 <tr>
                 <td>{{$no++}}</td>
                 <td>{{$pelanggan->name}}</td>
+                <td>{{$pelanggan->alamat}}</td>
                 <td>{{$pelanggan->debit_air}}</td>
-                <!-- menampilkan data yang bernilai Value 2 -->
-                <td>{{}}</td>
-                <td></td>
-                <td><a href="#" type="button" class="btn btn-success btn-sm" title="Lihat"><i class="fa fa-search text-white"> Lihat</i></a>
-                    <a href="#" type="button" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data?')"><i class="fa fa-trash text-white"> Hapus</a></td>
                 </tr>
                 @endforeach
                 </tbody>

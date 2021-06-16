@@ -23,7 +23,7 @@
             <h3 class="card-title"></h3>
             <!-- /.card-header -->
             <div class="card-body"> 
-            <table id="daftar_pelanggan" class="table table-bordered table-hover">
+            <table id="daftar_pembayaran" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                 <th>#</th>
@@ -39,7 +39,7 @@
                 @foreach($users as $pelanggan)
                 <tr>
                 <td>{{$no++}}</td>
-                <td>{{$pelanggan->user_id}}</td>
+                <td><center>{{$pelanggan->id}}</center></td>
                 <td>{{$pelanggan->name}}</td>
                 <td>{{$pelanggan->debit_air}}</td>
                 <td>{{ "Rp. " . number_format($pelanggan->debit_air*$pelanggan->hrg, 0, ",", ".") }}</td>

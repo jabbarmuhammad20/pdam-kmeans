@@ -19,7 +19,7 @@ class PelangganController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('pelanggan/admin/daftar_pelanggan',['users'=>$users]);
+        return view('pelanggan/admin_daftarPelanggan',['users'=>$users]);
     }
 
     /**
@@ -29,7 +29,7 @@ class PelangganController extends Controller
      */
     public function create()
     {
-        return view('pelanggan/admin/tambah_pelanggan');
+        return view('pelanggan/tambah_pelanggan');
     }
 
     /**
