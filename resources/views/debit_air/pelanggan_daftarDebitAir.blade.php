@@ -1,18 +1,34 @@
 @extends('layouts.adminlte')
 @section('content')
+
+<section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Data Riwayat Pemakaian Air</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">General Form</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Daftar Debit Air <a href="daftar_debitAirKMeans2">Rendah </a> <a href="daftar_debitAirKMeans1">Sedang </a> <a href="daftar_debitAirKMeans"> Tinggi </a></h3>
             <!-- /.card-header -->
             <div class="card-body"> 
             <table id="daftar_pelanggan" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                 <th>#</th>
-                <th>Nama</th>
+                <th>Bulan</th>
                 <th>Debit Air</th>
                 <th>Keasaman</th>
                 <th>Aksi</th>
@@ -20,15 +36,12 @@
                 </thead>
                 <tbody>
                 @php $no = 1; @endphp
-                @foreach($users as $pelanggan)
+                @foreach($debit_air as $pelanggan)
                 <tr>
                 <td>{{$no++}}</td>
-                <td>{{$pelanggan->name}}</td>
+                <td>{{$pelanggan->bulan}}</td>
                 <td>{{$pelanggan->debit_air}}</td>
-                <td>{{$pelanggan->debit_air}}</td>
-                <td><a href="admin_tambahDebitAir/{{$pelanggan->id}}" type="button" class="btn btn-primary btn-sm" title="Tambah Debit Air"><i class="fa fa-plus text-white"> Tambah Debit Air</i></a>
-                    <a href="#" type="button" class="btn btn-success btn-sm" title="Lihat"><i class="fa fa-search text-white"> Lihat</i></a>
-                    <a href="#" type="button" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data?')"><i class="fa fa-trash text-white"> Hapus</a></td>
+                <td>{{$pelanggan->keasaman}}</td>
                 </tr>
                 @endforeach
                 </tbody>

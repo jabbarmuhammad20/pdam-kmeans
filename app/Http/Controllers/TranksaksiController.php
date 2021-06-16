@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class TranksaksiController extends Controller
      */
     public function index()
     {
-        return view ('layouts.adminlte');
+        $users = User::all();
+        return view('tranksaksi/admin_daftarPembayaran',['users'=>$users]);
     }
 
     /**
@@ -21,9 +23,10 @@ class TranksaksiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $users = User::findOrFail($id);
+        return view ('/tranksaksi/admin_konfirmasiPembayaran',['users'=>$users]);
     }
 
     /**

@@ -9,7 +9,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
 
-class KMeansController extends Controller
+class KMeans1Controller extends Controller
 {
     //
 
@@ -97,7 +97,7 @@ class KMeansController extends Controller
 		// result['result']['2'] Rendah
 		// result['result']['1'] Sedang 
 		// result['result']['0'] Tinggi
-		foreach($result['result']['0'] as $res){
+		foreach($result['result']['1'] as $res){
 			array_push($ids, $res['id']);
 		}
 

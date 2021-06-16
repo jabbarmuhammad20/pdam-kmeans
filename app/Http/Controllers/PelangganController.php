@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Exports\UserExport;
+use App\Imports\Userimport;
 use App\Auth;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
 class PelangganController extends Controller
@@ -60,14 +63,17 @@ class PelangganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    // Menampilkan biodata pelanggan menurut pelanggan
+    public function pelanggan_show()
     {
-        //
+        
+        return view('/pelanggan/pelanggan_biodataPelanggan');
     }
 
     /**
      * Show the form for editing the specified resource.
-     *
+     *php artisan serve
+     
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -102,4 +108,33 @@ class PelangganController extends Controller
     {
         //
     }
+
+    public function pelanggan_exportExcel()
+	{
+		return Excel::download(new UserExport, 'Daftar Pelanggan.xlsx');
+	}
+    public function pelanggan_importExcel( Request $request)
+	{
+		{
+            // validasi
+            $this->validate($request, [
+                'file' => 'required|mimes:csv,xls,xlsx'
+            ]);
+     
+            // menangkap file excel
+            $file = $request->file('file');
+     
+            // membuat nama file unik
+            $nama_file = rand().$file->getClientOriginalName();
+     
+            // upload ke folder file_siswa di dalam folder public
+            $file->move('file_pelanggan',$nama_file);
+     
+            // import data
+            Excel::import(new UserImport, public_path('/file_pelanggan/'.$nama_file));
+     
+            // alihkan halaman kembali
+            return redirect('/daftar_pelanggan');
+        }
+	}
 }

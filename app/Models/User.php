@@ -26,6 +26,7 @@ class User extends Authenticatable
         'tem_lahir',
         'tgl_lahir',
         'alamat',
+        'uk_meter',
         'debit_air',
         'hrg',
         'belum_bayar',
@@ -49,4 +50,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function Debitair()
+    {
+     return $this->hashMany('App\Models\Debitair');
+    }
 }

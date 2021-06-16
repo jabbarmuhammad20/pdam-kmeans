@@ -17,6 +17,7 @@ class CreateDebitAirTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('debit_air');
+            $table->integer('keasaman');
             $table->string('ket');
             $table->timestamps();
         });

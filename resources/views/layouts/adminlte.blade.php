@@ -84,6 +84,7 @@
               </p>
             </a>
           </li>
+          @if(auth()->user()->role=='admin')
           <li class="nav-item">
             <a href="/daftar_pelanggan" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
@@ -101,13 +102,48 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/daftar_pembayaran" class="nav-link">
               <i class="nav-icon fa fa-hand-holding-usd"></i>
               <p>
                 Keuangan
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="admin_setting" class="nav-link">
+              <i class="nav-icon fas fa-cogs"></i>
+              <p>
+                Pengaturan
+              </p>
+            </a>
+          </li>
+          @endif
+          @if(auth()->user()->role=='pelanggan')
+          <li class="nav-item">
+            <a href="/pelanggan_biodataPelanggan" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Biodata
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+              <a href="/pelanggan_index/{id}" class="nav-link">
+              <i class="nav-icon fa fa-water"></i>
+              <p>
+                Riwayat Pemakaian Air
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-hand-holding-usd"></i>
+              <p>
+                Riwayat Pembayaran
+              </p>
+            </a>
+          </li>
+          @endif
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -199,7 +235,10 @@
     }).buttons().container().appendTo('#daftar_pelanggan_wrapper .col-md-6:eq(0)');
     
   });
+
+  
 </script>
+
   <script src="../adminlte/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../adminlte/dist/js/demo.js"></script>

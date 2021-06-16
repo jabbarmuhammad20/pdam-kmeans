@@ -9,7 +9,10 @@
             <!-- general form elements -->
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Edit Akun</h3>
+                <h3 class="card-title">Edit Akun      
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                  Format Pengisian
+                </button></h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -95,8 +98,13 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="kk">Harga /debit</label>
-                    <input type="number" class="form-control" id="hrg_debit" name="hrg_debit" value="{{$pelanggan->hrg_debit}}">
+                    <label for="hrg_debit">Ukuran Meter</label>
+                    <input type="number" class="form-control" id="uk_meter" name="uk_meter" value="{{$pelanggan->uk_meter}}">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="hrg_debit">Harga /debit</label>
+                    <input type="number" class="form-control" id="hrg" name="hrg" value="{{$pelanggan->hrg}}">
                   </div>
 
                   <div class="form-group">
@@ -113,8 +121,31 @@
                 </div>
               </form>
             </div>
-            </div>
-            </div>     
-            </div>
+          </div>
+        </div>     
+      </div>
             
+    <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Format Pengisian</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>- role = hanya boleh di isi oleh admin/pelanggan <br>
+              - Email = Masukan email pelanggan/admin<br>
+              - Username = Masukan Email pelanggan </p>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
 @endsection

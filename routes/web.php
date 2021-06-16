@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\CheckRole;
 use App\Http\Controller\KMeansController;
+use App\Http\Controller\KMeans1Controller;
+use App\Http\Controller\KMeans2Controller;
+use App\Http\Controller\TranksaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,20 +22,40 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/admin_setting', function () {
+    return view('admin_setting');
+});
+
 Auth::routes();
 
 // Halaman Hanya Untuk Admin
 Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    
+    Route::get('/daftar_pelanggan', [App\Http\Controllers\PelangganController::class, 'index'])->name('daftar_pelanggan');
+    Route::get('/tambah_pelanggan', [App\Http\Controllers\PelangganController::class, 'create'])->name('tambah_pelanggan');
+    Route::post('/tambah_pelangganStore', [App\Http\Controllers\PelangganController::class, 'store'])->name('tambah_pelangganStore');
+    Route::get('/admin_editpelanggan/{id}', [App\Http\Controllers\PelangganController::class, 'edit']);
+    Route::put('/admin_updatepelanggan/{id}', [App\Http\Controllers\PelangganController::class, 'update']);
+    Route::get('pelanggan_exportExcel', [App\Http\Controllers\PelangganController::class, 'pelanggan_exportExcel']);
+    Route::post('pelanggan_importExcel', [App\Http\Controllers\PelangganController::class, 'pelanggan_importExcel']);
+    
+    Route::get('/daftar_debitAir', [App\Http\Controllers\DebitController::class, 'index']);
+    Route::get('/admin_tambahDebitAir/{id}',[App\Http\Controllers\DebitController::class, 'admin_tambahDebitAir']);
+    Route::post('/tambah_debit_air',[App\Http\Controllers\DebitController::class, 'admin_debit_store']);
+    
+    Route::get('/daftar_debitAirKMeans',[App\Http\Controllers\KMeansController::class, 'index'])->name('Kmeans');
+    Route::get('/daftar_debitAirKMeans1',[App\Http\Controllers\KMeans1Controller::class, 'index'])->name('Kmeans1');
+    Route::get('/daftar_debitAirKMeans2',[App\Http\Controllers\KMeans2Controller::class, 'index'])->name('Kmeans2');
+    
+    Route::get('/daftar_pembayaran',[App\Http\Controllers\TranksaksiController::class, 'index']);
+    Route::get('/admin_konfirmasiKeuangan/{id}',[App\Http\Controllers\TranksaksiController::class, 'create']);
+    Route::post('/admin_konfirmasiKeuangan',[App\Http\Controllers\TranksaksiController::class, 'store']);
 
-Route::get('/daftar_pelanggan', [App\Http\Controllers\PelangganController::class, 'index'])->name('daftar_pelanggan');
-Route::get('/tambah_pelanggan', [App\Http\Controllers\PelangganController::class, 'create'])->name('tambah_pelanggan');
-Route::post('/tambah_pelangganStore', [App\Http\Controllers\PelangganController::class, 'store'])->name('tambah_pelangganStore');
-Route::get('/admin_editpelanggan/{id}', [App\Http\Controllers\PelangganController::class, 'edit']);
-Route::put('/admin_updatepelanggan/{id}', [App\Http\Controllers\PelangganController::class, 'update']);
+});
+// Hanya admin dan Pelanggan
+Route::group(['middleware' => ['auth', 'CheckRole:admin,pelanggan']], function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/daftar_debitAir', [App\Http\Controllers\DebitController::class, 'index']);
-Route::get('/admin_tambahDebitAir/{id}',[App\Http\Controllers\DebitController::class, 'admin_tambahDebitAir']);
-
-Route::get('/daftar_debitAirKMeans',[App\Http\Controllers\KMeansController::class, 'index']);
+    Route::get('/pelanggan_index/{id}', [App\Http\Controllers\DebitController::class, 'pelanggan_index']);
+    Route::get('/pelanggan_biodataPelanggan', [App\Http\Controllers\PelangganController::class, 'pelanggan_show']);
 });
