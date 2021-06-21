@@ -13,7 +13,7 @@
               <!-- form start -->
               <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/tambah_debit_air" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
-
+                <div class="card-body">
                   <div class="form-group">
                     <label for="email">Userid</label>
                     <input type="integer" class="form-control" id="user_id" name="user_id" value="{{$users->id}}" readonly>
@@ -54,7 +54,7 @@
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
-                  <button type="cancel" class="btn btn-seccondary">Cancel</button>
+                  <input type="button" class="btn btn-seccondary" value="Kembali" onclick="history.back(-1)" /> 
                 </div>
 
               </form>

@@ -129,35 +129,12 @@
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
                   <button type="reset" class="btn btn-default">Reset</button>
-                  <button type="cancel" class="btn btn-danger">Cancel</button>
+                  <input type="button" class="btn btn-seccondary" value="Kembali" onclick="history.back(-1)" /> 
                 </div>
               </form>
             </div>
           </div>
         </div>     
       </div>
-            
-    <div class="modal fade" id="modal-default">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Format Pengisian</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>- role = hanya boleh di isi oleh admin/pelanggan <br>
-              - Email = Masukan email pelanggan/admin<br>
-              - Username = Masukan Email pelanggan </p>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
+          
 @endsection

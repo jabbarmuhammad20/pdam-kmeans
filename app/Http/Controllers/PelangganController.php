@@ -8,6 +8,7 @@ use App\Auth;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
+use DB;
 
 class PelangganController extends Controller
 {
@@ -64,6 +65,11 @@ class PelangganController extends Controller
      * @return \Illuminate\Http\Response
      */
     // Menampilkan biodata pelanggan menurut pelanggan
+    public function show($id)
+    {
+        $pelanggan = User::findOrFail($id);
+        return view('/pelanggan/admin_lihatPelanggan', compact('pelanggan', 'pelanggan'));
+    }
     public function pelanggan_show()
     {
         
@@ -82,6 +88,19 @@ class PelangganController extends Controller
         $pelanggan = User::findOrFail($id);
         return view('pelanggan/admin_editpelanggan', compact('pelanggan', 'pelanggan'));
     }
+    public function cek_debit_air($id)
+    {
+        $pelanggan = User::findOrFail($id);
+        return view('debit_air/admin_cekDebitAir', compact('pelanggan', 'pelanggan'));
+    }
+
+    public function update_debitair(Request $request, $id)
+    {
+        $users = User::where('id', $id)->first();
+        $users->debit_air = $request->debit_air;
+        $users->update();
+        return redirect()->to('daftar_debitAir')->with(['success' => 'Debit Air Berhasil Direset']);  
+    }
 
     /**
      * Update the specified resource in storage.
@@ -98,6 +117,7 @@ class PelangganController extends Controller
         return redirect()->to('daftar_pelanggan')->with(['success' => 'Produk Berhasil Disimpan']);
     }
 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -106,7 +126,8 @@ class PelangganController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('users')->where('id', $id)->delete();
+        return redirect()->back()->with(['success' => 'Data Pelanggan Berhasil Dihapus']);
     }
 
     public function pelanggan_exportExcel()

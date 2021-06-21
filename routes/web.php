@@ -38,10 +38,14 @@ Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
     Route::put('/admin_updatepelanggan/{id}', [App\Http\Controllers\PelangganController::class, 'update']);
     Route::get('pelanggan_exportExcel', [App\Http\Controllers\PelangganController::class, 'pelanggan_exportExcel']);
     Route::post('pelanggan_importExcel', [App\Http\Controllers\PelangganController::class, 'pelanggan_importExcel']);
+    Route::get('admin_lihatPelanggan/{id}', [App\Http\Controllers\PelangganController::class, 'show']);
+    Route::get('admin_deletedpelanggan/{id}', [App\Http\Controllers\PelangganController::class, 'destroy']);
     
     Route::get('/daftar_debitAir', [App\Http\Controllers\DebitController::class, 'index']);
     Route::get('/admin_tambahDebitAir/{id}',[App\Http\Controllers\DebitController::class, 'admin_tambahDebitAir']);
     Route::post('/tambah_debit_air',[App\Http\Controllers\DebitController::class, 'admin_debit_store']);
+    Route::get('cekDebitAir/{id}',[App\Http\Controllers\PelangganController::class, 'cek_debit_air']);
+    Route::put('/update_debitAir/{id}',[App\Http\Controllers\PelangganController::class, 'update_debitair']);
     
     Route::get('/daftar_debitAirKMeans',[App\Http\Controllers\KMeansController::class, 'index'])->name('Kmeans');
     Route::get('/daftar_debitAirKMeans1',[App\Http\Controllers\KMeans1Controller::class, 'index'])->name('Kmeans1');
@@ -53,6 +57,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
     Route::post('/admin_konfirmasiKeuangan',[App\Http\Controllers\TranksaksiController::class, 'store']);
 
 });
+
 // Hanya admin dan Pelanggan
 Route::group(['middleware' => ['auth', 'CheckRole:admin,pelanggan']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

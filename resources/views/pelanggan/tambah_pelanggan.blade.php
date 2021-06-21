@@ -44,6 +44,7 @@
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
+                  <input type="button" class="btn btn-seccondary" value="Kembali" onclick="history.back(-1)" /> 
                 </div>
               </form>
             </div>

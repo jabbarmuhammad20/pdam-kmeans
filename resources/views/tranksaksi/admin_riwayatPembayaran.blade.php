@@ -39,14 +39,11 @@
                 @foreach($tranksaksi as $riwayat)
                 <tr>
                 <td>{{$no++}}</td>
-                <td><center>{{$riwayat->id}}</center></td>
-                <td>{{$riwayat->name}}</td>
-                <td>{{$riwayat->debit_air}}</td>
+                <td><center>{{$riwayat->user_id}}</center></td>
+                <td>{{$riwayat->User->name}}</td>
+                <td><center>{{$riwayat->in_debit}}</center></td>
                 <td>{{$riwayat->sudah_dibayar}}</td>
-               
-
                 <td>
-                <a href="admin_konfirmasiKeuangan/{{$pelanggan->id}}" type="button" class="btn btn-success btn-sm" title="Bayar"><i class="fa fa-money text-white"> Bayar</i></a>
                 <a href="#" type="button" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data?')"><i class="fa fa-trash text-white"> Hapus</a></td>
                 </tr>
             @endforeach

@@ -8,7 +8,8 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/admin_konfirmasiKeuangan" method="post" enctype="multipart/form-data">
+                {{ csrf_field() }}
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Userid</label>
@@ -36,14 +37,20 @@
                         </select>
                       </div>
                   <div class="form-group">
+                    <label for="exampleInputEmail1">Debit Air</label>
+                    <input type="text" class="form-control" name="in_debit" value="{{$users->debit_air}}" readonly>
+                  </div>
+                  <div class="form-group">
                     <label for="exampleInputEmail1">Jumlah Pembayaran</label>
-                    <input type="text" class="form-control" value="{{$users->debit_air*$users->hrg}}" readonly>
+                    <input type="text" class="form-control" name="sudah_dibayar" value="{{$users->debit_air*$users->hrg}}" readonly>
                   </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Konfirmasi</button>
+                  <input type="button" class="btn btn-seccondary" value="Kembali" onclick="history.back(-1)" /> 
                 </div>
               </form>
             </div>
+            @include('sweetalert::alert')
             @endsection

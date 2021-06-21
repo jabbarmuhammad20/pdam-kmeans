@@ -24,7 +24,7 @@ class TranksaksiController extends Controller
     // Riwayat Pembayaran
     public function admin_riwayatPembayaran()
     {
-        $tranksaksi = tranksaksi::all();
+        $tranksaksi = Tranksaksi::all();
         return view('tranksaksi/admin_riwayatPembayaran',['tranksaksi'=>$tranksaksi]);
     }
 
@@ -47,7 +47,17 @@ class TranksaksiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $tranksaksi = new \App\Models\Tranksaksi;
+        $tranksaksi->user_id = $request->user_id;
+        $tranksaksi->bulan = $request->bulan;
+        // untuk menginput debit brp debit air anda bayar
+        $tranksaksi->in_debit = $request->in_debit;
+        // sudah dibayar = debit air * tarif perdebit 
+        $tranksaksi->sudah_dibayar = $request->sudah_dibayar;
+        $tranksaksi->save();
+        
+        return redirect('/daftar_pembayaran')->with('success', 'Data berhasil Diproses!');
     }
 
     /**

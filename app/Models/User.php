@@ -54,4 +54,9 @@ class User extends Authenticatable
     {
      return $this->hashMany('App\Models\Debitair');
     }
+
+    public function Tranksaksi()
+    {
+     return $this->hashMany('App\Models\Tranksaksi');
+    }
 }

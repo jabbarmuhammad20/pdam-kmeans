@@ -18,4 +18,10 @@ class Tranksaksi extends Model
         'belum_lunas',
         'sudah_dibayar',
         ];
+
+ public function User()
+        {
+         return $this->belongsTo('App\Models\User');
+        }
 }
+
