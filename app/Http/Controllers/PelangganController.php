@@ -114,7 +114,7 @@ class PelangganController extends Controller
         $users = User::where('id', $id)->first();
         $users->fill($request->all());
         $users->update();
-        return redirect()->to('daftar_pelanggan')->with(['success' => 'Produk Berhasil Disimpan']);
+        return redirect()->to('daftar_pelanggan')->with(['success' => 'Data Berhasil Disimpan']);
     }
 
 

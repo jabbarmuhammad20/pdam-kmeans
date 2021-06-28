@@ -45,8 +45,8 @@
                 <td>{{ "Rp. " . number_format($pelanggan->debit_air*$pelanggan->hrg, 0, ",", ".") }}</td>
 
                 <td>
-                <a href="admin_konfirmasiKeuangan/{{$pelanggan->id}}" type="button" class="btn btn-success btn-sm" title="Bayar"><i class="fa fa-money text-white"> Bayar</i></a>
-                <a href="#" type="button" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data?')"><i class="fa fa-trash text-white"> Hapus</a></td>
+                <a href="admin_konfirmasiKeuangan/{{$pelanggan->id}}" type="button" class="btn btn-success btn-sm" title="Bayar"><i class="fa fa-money text-white"></i> Bayar</a>
+                <a href="#" type="button" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data?')"><i class="fa fa-trash text-white"></i> Hapus</a></td>
                 </tr>
             @endforeach
                 </tbody>

@@ -4,12 +4,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Daftar Keuangan pelanggan</h1>
+            <h1>Riwayat Pembayaran</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Daftar Keuangan pelanggan</li>
+              <li class="breadcrumb-item active">Riwayat Pembayaran</li>
             </ol>
           </div>
         </div>
@@ -44,7 +44,8 @@
                 <td><center>{{$riwayat->in_debit}}</center></td>
                 <td>{{$riwayat->sudah_dibayar}}</td>
                 <td>
-                <a href="#" type="button" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data?')"><i class="fa fa-trash text-white"> Hapus</a></td>
+                <a href="admin_deletedtranksaksi/{{$riwayat->id}}" type="button" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data?')"><i class="fa fa-trash text-white"></i> Hapus</a>
+                </td>
                 </tr>
             @endforeach
                 </tbody>
@@ -56,4 +57,5 @@
       </div>
     </div>
   </div>
+@include('sweetalert::alert')
 @endsection

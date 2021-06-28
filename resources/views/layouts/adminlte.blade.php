@@ -93,14 +93,28 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-              <a href="daftar_debitAir" class="nav-link">
+           <li class="nav-item">
+            <a href="#" class="nav-link">
               <i class="nav-icon fa fa-water"></i>
               <p>
-                Data Debit Air
+                Debit Air
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-          </li>
+          <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/daftar_debitAir" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Data Debit Air</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="admin_riwayat_debit_air" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Riwayat Input Debit Air</p>
+                  </a>
+                </li>
+              </ul>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-hand-holding-usd"></i>

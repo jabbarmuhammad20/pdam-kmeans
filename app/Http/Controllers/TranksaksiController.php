@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Tranksaksi;
+use DB;
 
 use Illuminate\Http\Request;
 
@@ -57,7 +58,7 @@ class TranksaksiController extends Controller
         $tranksaksi->sudah_dibayar = $request->sudah_dibayar;
         $tranksaksi->save();
         
-        return redirect('/daftar_pembayaran')->with('success', 'Data berhasil Diproses!');
+        return redirect('/admin_riwayatPembayaran')->with('success', 'Data berhasil Diproses!');
     }
 
     /**
@@ -102,6 +103,7 @@ class TranksaksiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('Tranksaksi')->where('id', $id)->delete();
+        return redirect()->back()->with(['success' => 'Data Berhasil Dihapus']);
     }
 }

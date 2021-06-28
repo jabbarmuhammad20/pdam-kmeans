@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Auth;
+use DB;
 use App\Models\User;
 use App\Models\Debitair;
 use Illuminate\Http\Request;
@@ -13,6 +14,12 @@ class DebitController extends Controller
     {
         $users = User::all();
         return view('debit_air/admin_daftarDebitAir',['users'=>$users]);
+    }
+
+    public function admin_riwayat_debit_air()
+    {
+        $debitair = Debitair::all();
+        return view('debit_air/admin_riwayatDebitAir',['debitair'=>$debitair]);
     }
     // Melihat daftar debit air menurut pelanggan
     public function pelanggan_index($id)
@@ -37,4 +44,9 @@ class DebitController extends Controller
         return redirect()->to('/daftar_debitAir')->with('toast_success', 'Debit Air berhasil Ditambah!');
     }
 
+    public function destroy($id)
+    {
+        DB::table('debit_air')->where('id', $id)->delete();
+        return redirect()->back()->with(['success' => 'Data Debit Berhasil Dihapus']);
+    }
 }

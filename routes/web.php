@@ -45,7 +45,9 @@ Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
     Route::get('/admin_tambahDebitAir/{id}',[App\Http\Controllers\DebitController::class, 'admin_tambahDebitAir']);
     Route::post('/tambah_debit_air',[App\Http\Controllers\DebitController::class, 'admin_debit_store']);
     Route::get('cekDebitAir/{id}',[App\Http\Controllers\PelangganController::class, 'cek_debit_air']);
+    Route::get('admin_riwayat_debit_air',[App\Http\Controllers\DebitController::class, 'admin_riwayat_debit_air']);
     Route::put('/update_debitAir/{id}',[App\Http\Controllers\PelangganController::class, 'update_debitair']);
+    Route::get('admin_deleteddebit/{id}', [App\Http\Controllers\DebitController::class, 'destroy']);
     
     Route::get('/daftar_debitAirKMeans',[App\Http\Controllers\KMeansController::class, 'index'])->name('Kmeans');
     Route::get('/daftar_debitAirKMeans1',[App\Http\Controllers\KMeans1Controller::class, 'index'])->name('Kmeans1');
@@ -55,6 +57,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
     Route::get('/admin_riwayatPembayaran',[App\Http\Controllers\TranksaksiController::class, 'admin_riwayatPembayaran']);
     Route::get('/admin_konfirmasiKeuangan/{id}',[App\Http\Controllers\TranksaksiController::class, 'create']);
     Route::post('/admin_konfirmasiKeuangan',[App\Http\Controllers\TranksaksiController::class, 'store']);
+    Route::get('admin_deletedtranksaksi/{id}', [App\Http\Controllers\TranksaksiController::class, 'destroy']);
 
 });
 
